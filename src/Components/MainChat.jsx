@@ -103,21 +103,23 @@ const MainChat = () => {
       </div>
 
       <form
-      onSubmit={sendMessage}
-      className="w-4/5 h-14 flex justify-center items-center mx-auto fixed bottom-0 left-0 right-0 z-10 bg-white"
-    >
-      <input
-        type="text"
-        value={prompt}
-        onChange={(e) => setPrompt(e.target.value)}
-        placeholder="Enter Your Message Here"
-        className="h-12 w-4/5 rounded-full pl-4 dark:bg-sideBarBackgroundColor-dark dark:text-textColor-dark disabled:cursor-not-allowed"
-      />
-      <MdOutlineInsertPhoto
-        disabled={prompt === ""}
-        className="ml-6 h-8 w-8 dark:text-textColor-dark cursor-pointer dark:hover:bg-hoverColor-dark hover:bg-hoverColor-light rounded-md"
-      />
-    </form>
+        onSubmit={sendMessage}
+        className="w-4/5 h-14 flex justify-center items-center mx-auto"
+      >
+        <input
+          type="text"
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+          placeholder="Enter Your Message Here"
+          className="h-12 w-4/5 rounded-full pl-4 dark:bg-sideBarBackgroundColor-dark dark:text-textColor-dark
+                      disabled:cursor-not-allowed"
+        />
+        <MdOutlineInsertPhoto
+          disabled={prompt === ""}
+          className=" ml-6 h-8 w-8 dark:text-textColor-dark cursor-pointer 
+        dark:hover:bg-hoverColor-dark hover:bg-hoverColor-light rounded-md"
+        />
+      </form>
     </>
   );
 };
