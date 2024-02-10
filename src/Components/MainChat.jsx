@@ -18,6 +18,7 @@ const MainChat = () => {
   const [prompt, setPrompt] = useState("");
   const [messages, setMessages] = useState([]);
   const chatContainerRef = useRef(null);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     const chatMessagesQuery = query(
@@ -68,6 +69,9 @@ const MainChat = () => {
 
     await addDoc(chatRef, userMessage);
     await addDoc(chatRef, systemResponse);
+
+    // Ref for input
+    inputRef.current.blur();
   };
 
   return (
@@ -107,6 +111,7 @@ const MainChat = () => {
         className="w-4/5 h-14 flex justify-center items-center mx-auto"
       >
         <input
+          ref={inputRef}
           type="text"
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
@@ -115,7 +120,6 @@ const MainChat = () => {
                       disabled:cursor-not-allowed"
         />
         <MdOutlineInsertPhoto
-          disabled={prompt === ""}
           className=" ml-6 h-8 w-8 dark:text-textColor-dark cursor-pointer 
         dark:hover:bg-hoverColor-dark hover:bg-hoverColor-light rounded-md"
         />
