@@ -25,7 +25,7 @@ const ChatPage = () => {
         />
         <div className="w-full h-screen flex flex-col">
           <MainHeader toggleSidebar={toggleSidebar} />
-          <div className="h-screen md:flex-1 flex flex-col items-center">
+          <div className="flex-1 flex flex-col items-center">
             <MainChat />
           </div>
         </div>
