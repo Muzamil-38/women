@@ -33,16 +33,17 @@ const ChatPage = () => {
 
   return (
     <div className="bg-backgroundColor-light dark:bg-backgroundColor-dark min-h-screen w-screen">
-      <div className="flex" style={{ height: `${viewportHeight}px` }}>
+      <div className="flex">
         {/* Sidebar component */}
         <Sidebar
           isOpen={isSidebarOpen}
           closeSidebar={closeSidebar}
           ref={sidebarRef}
+          style={{ height: `${viewportHeight}px` }}
         />
 
         {/* Main content */}
-        <div className="w-screen h-screen flex flex-col overflow-hidden">
+        <div className="w-screen h-screen flex flex-col overflow-hidden" style={{ height: `${viewportHeight}px` }}>
           <MainHeader toggleSidebar={toggleSidebar} />
           <MainChat />
         </div>
