@@ -16,7 +16,7 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="bg-backgroundColor-light dark:bg-backgroundColor-dark h-svh w-svh">
+    <div className="bg-backgroundColor-light dark:bg-backgroundColor-dark h-screen w-screen">
       <div className="flex">
         <Sidebar
           isOpen={isSidebarOpen}
