@@ -39,7 +39,6 @@ const ChatPage = () => {
           isOpen={isSidebarOpen}
           closeSidebar={closeSidebar}
           ref={sidebarRef}
-          style={{ height: `${viewportHeight}px` }}
         />
 
         {/* Main content */}
