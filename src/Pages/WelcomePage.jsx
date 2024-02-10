@@ -56,7 +56,7 @@ const WelcomePage = () => {
     <div className="bg-black w-screen h-screen flex overflow-hidden flex-col items-center justify-center text-center p-4 md:flex-row ">
       <div className="w-full md:w-3/5 text-white md:m-20">
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold">
-          Women2Women Chat Haven
+          Women2Women Chat
         </h1>
         <p className="text-sm md:text-base lg:text-lg">
           Your Exclusive Space for Empowering Conversations! Immerse yourself in
@@ -70,15 +70,12 @@ const WelcomePage = () => {
         </p>
         <motion.div
           className="flex items-center justify-center mt-8"
-          initial={{ y: 500 }}
-          animate={{ y: 0 }}
+          initial={{ x: -500 }}
+          animate={{ x: 0 }}
           transition={{ type: "spring", duration: 2 }}
         >
           <div
             className="bg-white w-48 flex cursor-pointer rounded hover:bg-pink-100"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2 }}
             onClick={handleGoogleSignIn}
           >
             <img src={googleLogo} alt="Google Logo" className="w-10 h-10 p-2" />
@@ -90,9 +87,9 @@ const WelcomePage = () => {
       <motion.img
         src={womenLogo}
         alt="Women Logo"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
+        initial={{ x: 500 }}
+          animate={{ x: 0 }}
+          transition={{ type: "spring", duration: 2 }}
       />
     </div>
   );
