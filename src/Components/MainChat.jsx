@@ -73,7 +73,7 @@ const MainChat = () => {
   return (
     <>
       <div
-        className="w-4/5 flex-1 overflow-y-auto scrollbar-thin scrollbar-webkit dark:text-textColor-dark"
+        className="mx-auto w-4/5 flex-1 overflow-y-auto scrollbar-thin scrollbar-webkit dark:text-textColor-dark"
         ref={chatContainerRef}
       >
         <div className="w-[90%] mx-auto">
@@ -104,7 +104,7 @@ const MainChat = () => {
 
       <form
         onSubmit={sendMessage}
-        className="w-4/5 h-14 flex justify-center items-center"
+        className="w-4/5 h-14 flex justify-center items-center mx-auto"
       >
         <input
           type="text"
