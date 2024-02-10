@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Sidebar from "../Components/Sidebar";
 import MainHeader from "../Components/MainHeader";
 import MainChat from "../Components/MainChat";
@@ -15,15 +15,37 @@ const ChatPage = () => {
     setSidebarOpen(false);
   };
 
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportHeight(window.innerHeight);
+    };
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Remove event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <div className="bg-backgroundColor-light dark:bg-backgroundColor-dark h-screen w-screen">
+    <div className="bg-backgroundColor-light dark:bg-backgroundColor-dark min-h-screen w-screen">
       <div className="flex">
+        {/* Sidebar component */}
         <Sidebar
           isOpen={isSidebarOpen}
           closeSidebar={closeSidebar}
           ref={sidebarRef}
         />
-        <div className="w-screen h-screen flex flex-col ">
+
+        {/* Main content */}
+        <div
+          className="w-screen h-screen flex flex-col overflow-hidden"
+          style={{ height: `${viewportHeight}px` }}
+        >
           <MainHeader toggleSidebar={toggleSidebar} />
           <MainChat />
         </div>
