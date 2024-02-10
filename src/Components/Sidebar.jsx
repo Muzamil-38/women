@@ -155,6 +155,22 @@ const Sidebar = forwardRef(({ isOpen, closeSidebar }, ref) => {
     }
   };
 
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportHeight(window.innerHeight);
+    };
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Remove event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       {isOpen && (
@@ -164,6 +180,7 @@ const Sidebar = forwardRef(({ isOpen, closeSidebar }, ref) => {
         ></div>
       )}
       <div
+        style={{ height: `${viewportHeight}px` }}
         className={`fixed top-0 left-0 h-screen w-[70%] bg-gray-800 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform ease-in-out duration-300 
