@@ -32,11 +32,8 @@ const ChatPage = () => {
   }, []);
 
   return (
-    <div
-      className="bg-backgroundColor-light dark:bg-backgroundColor-dark min-h-screen w-screen"
-      style={{ height: `${viewportHeight}px` }}
-    >
-      <div className="flex">
+    <div className="bg-backgroundColor-light dark:bg-backgroundColor-dark min-h-screen w-screen">
+      <div className="flex" style={{ height: `${viewportHeight}px` }}>
         {/* Sidebar component */}
         <Sidebar
           isOpen={isSidebarOpen}
